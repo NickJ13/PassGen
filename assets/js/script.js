@@ -10,6 +10,7 @@ var specChar = ["!", "@", "#", "$", "%", "^", "&", "*"];
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 console.log(upperCase);
 console.log(lowerCase);
+var possibleChar = [];
 
 //create a function to prompt user for password options
 
@@ -89,7 +90,6 @@ function generatePassword() {
   var result = [];
 
   // Create an array to store the types of characters to inclue in the password
-  var possibleChar = [];
 
   // create an array to store guaranted characters
   var guarantedChar = [];
@@ -114,17 +114,21 @@ function generatePassword() {
     possibleChar = possibleChar.concat(numbers);
     guarantedChar.push(randomizeArray(numbers));
   }
-
+  console.log(possibleChar);
+  console.log(result);
   //Create a for loop to iterate over the password length from the options object, selecting random I from the array of possible characters concating and return them into the results variable.
   for (var i = 0; i < userOptions.length; i++) {
     //random number to use as index to the array
-    console.log(i);
+    result.push(randomizeArray(possibleChar));
+    // console.log(result);
   }
 
-    //create a for loop for mix in atleast one of each guarenteed chracters into the result to mix in a guarenteed chracters to the result
+  
 
     //return the result and make it into a string and pass it into writePassword
+    // console.log(result.join(""));
     return result.join("");
+
 }
 
 var generateBtn = document.querySelector("#generate");
